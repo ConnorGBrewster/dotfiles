@@ -5,7 +5,7 @@ export ZSH=/Users/connor/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Base16 Shell
 # if [ -z "$THEME" ]; then
-export THEME="base16-monokai"
+export THEME="base16-default"
 # fi
 if [ -z "$BACKGROUND" ]; then
 export BACKGROUND="dark"

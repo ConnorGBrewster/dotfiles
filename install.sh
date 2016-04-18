@@ -2,6 +2,8 @@
 
 echo "Installing Dotfiles"
 
+source install/link.sh
+
 if [ "$(uname)" == "Darwin" ]; then
     echo -e "\n\nRunning OSX specific scripts"
     
