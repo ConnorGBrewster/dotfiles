@@ -1,0 +1,55 @@
+# remap prefix form 'C-b' to 'C-a'
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# use zsh
+set-option -g default-shell /usr/local/bin/zsh
+
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# reload config file
+bind r source-file ~/.tmux.conf
+
+# enable mouse mode
+set -g mouse on
+
+# don't rename windows automatically
+set-option -g allow-rename off
+
+# 256 Color Support
+set -g default-terminal "screen-256color"
+
+# bind L to last window
+bind-key L last-window
+
+# turn on vi bindings in copy mode
+set-option -g status-keys vi
+set-window-option -g mode-keys vi
+
+# allow copying to system clipboard
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy v copy-pipe "reattach-to-user-namespace pbcopy"
+
+# move between panes vim-like
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# set scrollback history to 10000
+set -g history-limit 10000
+
+# use C-h and C-l to cycle through panes
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# resize panes using PREFIX H, J, K, L
+bind H resize-pane -L 5
+bind J resize-pane -D 5
+bind K resize-pane -U 5
+bind L resize-pane -R 5

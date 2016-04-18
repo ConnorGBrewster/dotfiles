@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/connor/Development/servo/servo'
+let g:netrw_dirhist_2='/Users/connor/Development/servo/servo/components'
+let g:netrw_dirhist_3='/Users/connor/Development/servo/servo/components/script'
+let g:netrw_dirhist_4='/Users/connor/Development/servo/servo/components/script/parse'
