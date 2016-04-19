@@ -30,10 +30,16 @@ bind-key L last-window
 # turn on vi bindings in copy mode
 set-option -g status-keys vi
 set-window-option -g mode-keys vi
+unbind [
+bind Escape copy-mode
+unbind p
+bind p paste-buffer
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
 
 # allow copying to system clipboard
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy v copy-pipe "reattach-to-user-namespace pbcopy"
+# bind-key -t vi-copy v begin-selection
+# bind-key -t vi-copy v copy-pipe "reattach-to-user-namespace pbcopy"
 
 # move between panes vim-like
 bind h select-pane -L
@@ -69,6 +75,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-battery'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

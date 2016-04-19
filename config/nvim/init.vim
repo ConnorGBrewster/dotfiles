@@ -23,7 +23,9 @@ set shiftwidth=4
 
 set autoindent
 
+" YouCompleteMe config
 let g:ycm_rust_src_path = '/Users/connor/Development/rust'
+nnoremap <Leader>] :YcmCompleter GoTo<CR>
 
 set backspace=indent,eol,start
 
