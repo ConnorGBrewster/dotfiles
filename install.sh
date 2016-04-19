@@ -18,6 +18,6 @@ chsh -s $(which zsh)
 
 source install/link.sh
 
-
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Done."
