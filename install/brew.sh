@@ -13,6 +13,7 @@ brew install zsh
 brew install tmux
 brew install macvim --override-system-vim
 brew install reattach-to-user-namespace
+brew install the_silver_searcher
 
 # install neovim
 brew install neovim/neovim/neovim
