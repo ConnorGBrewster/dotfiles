@@ -1,3 +1,5 @@
+set nocompatible
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -18,6 +20,10 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
+" set a map leader for more key combos
+let mapleader = ','
+let g:mapleader = ','
+
 set expandtab
 set tabstop=4
 set softtabstop=4
@@ -34,6 +40,10 @@ set backspace=indent,eol,start
 " Line numbers
 set number
 set relativenumber
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 set noeb vb t_vb=
 
@@ -58,4 +68,7 @@ set clipboard=unnamed
 
 " NERDTree binding
 map <C-n> :NERDTreeToggle<CR>
+
+" shortcut to save
+nmap <leader>, :w<cr>
 
