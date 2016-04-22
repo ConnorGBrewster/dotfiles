@@ -72,3 +72,6 @@ map <C-n> :NERDTreeToggle<CR>
 " shortcut to save
 nmap <leader>, :w<cr>
 
+" Add nav controls to quickfix window for Ag
+map <C-j> :cn<CR>
+map <C-k> :cp<CR>
