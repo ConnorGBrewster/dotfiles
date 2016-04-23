@@ -57,6 +57,9 @@ plugins=(git)
 export EDITOR='nvim'
 alias vim='/usr/local/bin/nvim'
 
+# Add rustup
+export PATH=~/.cargo/bin
+
 export PATH=/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
