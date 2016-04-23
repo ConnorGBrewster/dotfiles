@@ -1,4 +1,5 @@
 set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,7 +33,7 @@ set shiftwidth=4
 set autoindent
 
 " YouCompleteMe config
-let g:ycm_rust_src_path = '/Users/connor/Development/rust'
+let g:ycm_rust_src_path = '~/Development/rust'
 nnoremap <Leader>] :YcmCompleter GoTo<CR>
 
 set backspace=indent,eol,start
@@ -54,8 +55,6 @@ set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 execute "set background=".$BACKGROUND
 execute "colorscheme ".$THEME
 execute ":let g:airline_theme='base16'"
-highlight Comment cterm=italic
-
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -89,6 +88,11 @@ nmap <leader>l :bnext<CR>
 
 " Move to the previous buffer
 nmap <leader>h :bprevious<CR>
+
+" Unmap GitGutter <leader>h*
+unmap <leader>hp
+unmap <leader>hr
+unmap <leader>hs
 
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
