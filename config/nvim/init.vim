@@ -98,5 +98,5 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 
 " Add lines without going into insert mode
-nmap <S-Enter> O<Esc>
+nmap <C-O> O<Esc>
 nmap <CR> o<Esc>
