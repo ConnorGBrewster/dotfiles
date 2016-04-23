@@ -96,3 +96,7 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+
+" Add lines without going into insert mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
