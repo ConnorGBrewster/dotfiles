@@ -92,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Base16 Shell
 # if [ -z "$THEME" ]; then
-export THEME="base16-monokai"
+export THEME="base16-default"
 # fi
 if [ -z "$BACKGROUND" ]; then
 export BACKGROUND="dark"

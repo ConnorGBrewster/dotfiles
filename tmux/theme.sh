@@ -1,8 +1,8 @@
-tm_color_active=colour39
-tm_color_inactive=colour241
-tm_color_feature=colour198
-tm_color_music=colour198
-tm_active_border_color=colour39
+tm_color_active=colour12
+tm_color_inactive=colour8
+tm_color_feature=colour9
+tm_color_music=colour9
+tm_active_border_color=colour12
 tm_color_green=colour2
 
 # separators
@@ -18,7 +18,7 @@ set -g status-interval 5
 # default statusbar colors
 # set-option -g status-bg colour0
 set-option -g status-fg $tm_color_active
-set-option -g status-bg default
+set-option -g status-bg colour0
 set-option -g status-attr default
 
 # default window title colors
@@ -47,7 +47,7 @@ set-option -g display-panes-colour $tm_color_inactive
 set-window-option -g clock-mode-colour $tm_color_active
 
 tm_tunes="#[fg=$tm_color_music]#(osascript ~/.dotfiles/applescripts/tunes.scpt)"
-tm_battery="#[fg=$tm_color_active]#{battery_icon} #{battery_percentage}"
+tm_battery="#[fg=$tm_color_active] #{battery_percentage}"
 
 tm_date="#[fg=$tm_color_green] %R %d %b"
 tm_host="#[fg=$tm_color_feature,bold]#h"

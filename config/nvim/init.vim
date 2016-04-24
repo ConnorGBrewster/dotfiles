@@ -53,7 +53,7 @@ set noeb vb t_vb=
 " Colors
 set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
-set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
+" set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 execute "set background=".$BACKGROUND
 execute "colorscheme ".$THEME
 execute ":let g:airline_theme='base16'"
