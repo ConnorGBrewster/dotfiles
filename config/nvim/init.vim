@@ -16,6 +16,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 filetype plugin indent on
