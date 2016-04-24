@@ -90,9 +90,7 @@ nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
 
 " Unmap GitGutter <leader>h*
-unmap <leader>hp
-unmap <leader>hr
-unmap <leader>hs
+let g:gitgutter_map_keys = 0
 
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
