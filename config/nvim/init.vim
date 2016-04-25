@@ -18,9 +18,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on
+filetype plugin on
 syntax on
 
 " set a map leader for more key combos
@@ -60,6 +62,7 @@ execute ":let g:airline_theme='base16'"
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 set laststatus=2
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
