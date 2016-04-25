@@ -48,7 +48,7 @@ set-window-option -g clock-mode-colour $tm_color_active
 
 tm_tunes="#[fg=$tm_color_music]#(osascript ~/.dotfiles/applescripts/tunes.scpt)"
 tm_battery="#[fg=$tm_color_active]#{battery_percentage}"
-tm_ip_address="#[fg=$tm_color_active]#(ifconfig en0 | grep 'inet ' | awk '{print \" en0 \" $2}#(ifconfig en1 | grep 'inet ' | awk '{print \" en1 \" $2}')')#(ifconfig en2 | grep 'inet ' | awk '{print \" en2 \" $2}')')"
+tm_ip_address="#[fg=$tm_color_active]#(ifconfig en0 | grep 'inet ' | awk '{print \" en0 \" $2}')#(ifconfig en1 | grep 'inet ' | awk '{print \" en1 \" $2}')#(ifconfig en2 | grep 'inet ' | awk '{print \" en2 \" $2}')"
 
 tm_date="#[fg=$tm_color_green]%R %d %b"
 tm_host="#[fg=$tm_color_feature,bold]#h"
