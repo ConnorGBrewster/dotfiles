@@ -15,9 +15,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "Initializing Submodules"
 git submodule update --init --recursive
 
-
 echo "Configuring zsh as default shell"
 chsh -s $(which zsh)
+
+rm ~/.zshrc
 
 source install/link.sh
 
