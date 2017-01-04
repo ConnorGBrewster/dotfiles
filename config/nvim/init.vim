@@ -17,6 +17,9 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/idlang.vim'
+Plug 'aldafu/vim-widl'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 filetype plugin indent on

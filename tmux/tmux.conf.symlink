@@ -34,11 +34,6 @@ unbind [
 bind Escape copy-mode
 unbind p
 bind p paste-buffer
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
-
-# allow copying to system clipboard
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # move between panes vim-like
 bind h select-pane -L
@@ -58,6 +53,8 @@ bind H resize-pane -L 5
 bind J resize-pane -D 5
 bind K resize-pane -U 5
 bind L resize-pane -R 5
+
+bind -n C-k send-keys "clear && tmux clear-history" \; send-keys "Enter"
 
 # Mac clipboard
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
