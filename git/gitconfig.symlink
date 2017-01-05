@@ -1,0 +1,16 @@
+[user]
+	name = Connor Brewster
+	email = connor.brewster@eagles.oc.edu
+	signingkey = 33E3111A
+[push]
+	default = simple
+[core]
+	editor = vim
+	excludesfile = ~/.config/git/ignore
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[alias]
+    fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+
