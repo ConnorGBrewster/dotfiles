@@ -71,11 +71,11 @@ let mapleader = "\<Space>"
 " set background=dark
 " colorscheme github
 " colorscheme space-vim-dark
-colorscheme embark
+" colorscheme embark
 
-" let g:gruvbox_contrast_dark='hard'
-" let g:gruvbox_invert_selection='0'
-" colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_invert_selection='0'
+colorscheme gruvbox
 
 set backspace=indent,eol,start
 " Fix colors for alacritty

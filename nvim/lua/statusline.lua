@@ -1,9 +1,31 @@
+local gruvbox = {
+    bg = '#282828',
+    fg = '#ebdbb2',
+    yellow = '#fabd2f',
+    cyan = '#85a598',
+    darkblue = '#458588',
+    green = '#b8bb26',
+    orange = '#d65d0e',
+    violet = '#b16286',
+    magenta = '#d3869b',
+    blue = '#8ec07c',
+    red = '#fb4934',
+};
+
 local gl = require('galaxyline')
 local colors = require('galaxyline.theme').default
+colors = gruvbox
 local condition = require('galaxyline.condition')
 local diagnostic = require('galaxyline.provider_diagnostic')
 local lspclient = require('galaxyline.provider_lsp')
 local gls = gl.section
+
+local function printer(str)
+	return function() return str end
+end
+
+local space = printer(' ')
+
 gl.short_line_list = {'NvimTree','vista','dbui'}
 
 gls.left[1] = {
@@ -34,23 +56,28 @@ gls.left[3] = {
   FileSize = {
     provider = 'FileSize',
     condition = condition.buffer_not_empty,
-    highlight = {colors.fg,colors.bg}
+    highlight = {colors.fg,colors.bg},
+    separator = '',
+    separator_highlight = {colors.bg,colors.blue},
   }
 }
 gls.left[4] ={
   FileIcon = {
-    provider = 'FileIcon',
+    provider = {space, 'FileIcon'},
     condition = condition.buffer_not_empty,
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+    highlight = {colors.bg,colors.blue},
+    separator = '',
+    separator_highlight = {colors.bg,colors.blue},
   },
 }
 
 gls.left[5] = {
   FileName = {
-    provider = {'FileName'},
+    provider = {space, 'FileName'},
     separator = ' ',
     condition = condition.buffer_not_empty,
-    highlight = {colors.magenta,colors.bg,'bold'}
+    highlight = {colors.magenta,colors.bg,'bold'},
+    separator_highlight = {colors.magenta,colors.bg,'bold'}
   }
 }
 
@@ -93,7 +120,7 @@ gls.left[10] = {
     icon = '  ',
     separator = '',
     condition = condition.buffer_not_empty,
-    highlight = {colors.cyan,colors.bg},
+    highlight = {colors.blue,colors.bg},
   }
 }
 
@@ -134,9 +161,11 @@ gls.right[3] = {
 
 gls.right[4] = {
   GitBranch = {
-    provider = 'GitBranch',
+    provider = {space,'GitBranch'},
     condition = condition.check_git_workspace,
-    highlight = {colors.violet,colors.bg,'bold'},
+    highlight = {colors.bg,colors.violet,'bold'},
+    separator = '',
+    separator_highlight = {colors.bg,colors.violet,'bold'},
   }
 }
 
@@ -146,6 +175,8 @@ gls.right[5] = {
     condition = condition.hide_in_width,
     icon = '  ',
     highlight = {colors.green,colors.bg},
+    separator = '',
+    separator_highlight = {colors.bg,colors.violet,'bold'},
   }
 }
 gls.right[6] = {
