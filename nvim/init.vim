@@ -64,6 +64,8 @@ set scrolloff=8
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
+" upate git faster
+set updatetime=100
 
 " Use <SPACE> as leader
 let mapleader = "\<Space>"
@@ -163,9 +165,10 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 
 autocmd BufWritePre *.go,*.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
-autocmd CursorHold   <buffer> lua vim.lsp.buf.document_highlight()
-autocmd CursorHoldI  <buffer> lua vim.lsp.buf.document_highlight()
-autocmd CursorMoved  <buffer> lua vim.lsp.buf.clear_references()
+" TODO: Not sure if these even work :(
+" autocmd CursorHold   <buffer> lua vim.lsp.buf.document_highlight()
+" autocmd CursorHoldI  <buffer> lua vim.lsp.buf.document_highlight()
+" autocmd CursorMoved  <buffer> lua vim.lsp.buf.clear_references()
 
 lua << EOF
 require'compe'.setup {
@@ -202,7 +205,17 @@ require'lspconfig'.gopls.setup{
 }
 
 require'lspconfig'.rust_analyzer.setup{
-    capabilities = capabilities
+    capabilities = capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
 }
 
 require'lspconfig'.tsserver.setup{

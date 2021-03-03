@@ -58,16 +58,16 @@ gls.left[3] = {
     condition = condition.buffer_not_empty,
     highlight = {colors.fg,colors.bg},
     separator = '',
-    separator_highlight = {colors.bg,colors.blue},
+    separator_highlight = {colors.bg,colors.green},
   }
 }
 gls.left[4] ={
   FileIcon = {
     provider = {space, 'FileIcon'},
     condition = condition.buffer_not_empty,
-    highlight = {colors.bg,colors.blue},
+    highlight = {colors.bg,colors.green},
     separator = '',
-    separator_highlight = {colors.bg,colors.blue},
+    separator_highlight = {colors.bg,colors.green},
   },
 }
 
