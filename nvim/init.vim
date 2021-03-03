@@ -3,13 +3,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Nice GUI tings
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 
@@ -49,6 +50,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-writer.nvim'
 call plug#end()
 
+lua require('statusline')
+
 syntax on
 
 set number
@@ -70,7 +73,7 @@ let mapleader = "\<Space>"
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
-let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='base16_gruvbox_dark_hard'
 
 set backspace=indent,eol,start
 " Fix colors for alacritty
@@ -134,8 +137,6 @@ autocmd FileType dart setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx Neoformat prettier
 
 " Directory specific overrides
-" Disable rustfmt firefox stuff since it isn't used there yet.
-:autocmd BufRead,BufNewFile /Users/cbrewster/Development/firefox/mozilla-central/* let b:rustfmt_autosave = 0
 " repl it web uses 2 space indent
 :autocmd BufRead,BufNewFile /Users/cbrewster/Development/repl-it-web/* setlocal ts=2 sw=2 expandtab
 
@@ -154,6 +155,7 @@ set signcolumn=yes
 set shortmess+=c
 set completeopt=menuone,noselect
 
+" compe mappings
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
@@ -161,41 +163,11 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 
 autocmd BufWritePre *.go,*.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
-autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
-autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+autocmd CursorHold   <buffer> lua vim.lsp.buf.document_highlight()
+autocmd CursorHoldI  <buffer> lua vim.lsp.buf.document_highlight()
+autocmd CursorMoved  <buffer> lua vim.lsp.buf.clear_references()
 
 lua << EOF
-local on_attach = function(client, buffer)
-end
-
-local capabilities = {}
-
-require'lspconfig'.gopls.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-require'lspconfig'.rust_analyzer.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-require'lspconfig'.tsserver.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-require'lspconfig'.flow.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-require'lspconfig'.vimls.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -219,9 +191,30 @@ require'compe'.setup {
     nvim_lua = true;
     spell = true;
     tags = true;
-    snippets_nvim = true;
     treesitter = true;
   };
+}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.gopls.setup{
+    capabilities = capabilities
+}
+
+require'lspconfig'.rust_analyzer.setup{
+    capabilities = capabilities
+}
+
+require'lspconfig'.tsserver.setup{
+    capabilities = capabilities
+}
+
+require'lspconfig'.flow.setup{
+    capabilities = capabilities
+}
+
+require'lspconfig'.vimls.setup{
+    capabilities = capabilities
 }
 
 local saga = require 'lspsaga'
@@ -239,3 +232,5 @@ nnoremap <silent><leader>cd <cmd>lua require'lspsaga.diagnostic'.show_line_diagn
 nnoremap <silent> <leader>cd :Lspsaga show_line_diagnostics<CR>
 nnoremap <silent> [e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
 nnoremap <silent> ]e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
+
+
