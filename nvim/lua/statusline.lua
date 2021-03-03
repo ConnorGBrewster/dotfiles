@@ -8,7 +8,7 @@ gl.short_line_list = {'NvimTree','vista','dbui'}
 
 gls.left[1] = {
   RainbowRed = {
-    provider = function() return '▊ ' end,
+    provider = function() return ' ' end,
     highlight = {colors.blue,colors.bg}
   },
 }
@@ -25,7 +25,7 @@ gls.left[2] = {
                           rm = colors.cyan, ['r?'] = colors.cyan,
                           ['!']  = colors.red,t = colors.red}
       vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
-      return '  '
+      return '  '
     end,
     highlight = {colors.red,colors.bg,'bold'},
   },
@@ -48,6 +48,7 @@ gls.left[4] ={
 gls.left[5] = {
   FileName = {
     provider = {'FileName'},
+    separator = ' ',
     condition = condition.buffer_not_empty,
     highlight = {colors.magenta,colors.bg,'bold'}
   }
@@ -123,7 +124,7 @@ gls.right[2] = {
 
 gls.right[3] = {
   GitIcon = {
-    provider = function() return '  ' end,
+    provider = function() return '  ' end,
     condition = condition.check_git_workspace,
     separator = ' ',
     separator_highlight = {'NONE',colors.bg},
@@ -151,7 +152,7 @@ gls.right[6] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = condition.hide_in_width,
-    icon = ' 柳',
+    icon = '  ',
     highlight = {colors.orange,colors.bg},
   }
 }
@@ -166,7 +167,7 @@ gls.right[7] = {
 
 gls.right[8] = {
   RainbowBlue = {
-    provider = function() return ' ▊' end,
+    provider = function() return '  ' end,
     highlight = {colors.blue,colors.bg}
   },
 }
