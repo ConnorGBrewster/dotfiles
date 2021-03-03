@@ -1,0 +1,146 @@
+font:
+  size: 18.0
+  normal:
+    family: "SFMono Nerd Font"
+    style: Regular
+  bold:
+    family: "SFMono Nerd Font"
+    style: Regular
+  glyph_offset:
+    x: 0
+    y: 0
+
+window:
+  dynamic_padding: true
+
+# Base16 Gruvbox dark, hard - alacritty color config
+# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+colors:
+  # Default colors
+  primary:
+    background: '0x1d2021'
+    foreground: '0xd5c4a1'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x1d2021'
+    cursor: '0xd5c4a1'
+
+  # Normal colors
+  normal:
+    black:   '0x1d2021'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xd5c4a1'
+
+  # Bright colors
+  bright:
+    black:   '0x665c54'
+    red:     '0xfe8019'
+    green:   '0x3c3836'
+    yellow:  '0x504945'
+    blue:    '0xbdae93'
+    magenta: '0xebdbb2'
+    cyan:    '0xd65d0e'
+    white:   '0xfbf1c7'
+
+draw_bold_text_with_bright_colors: false
+
+# End Gruvbox
+
+# Nord
+
+# colors:
+#   primary:
+#     background: '0x2E3440'
+#     foreground: '0xD8DEE9'
+#   cursor:
+#     text: '0x2E3440'
+#     cursor: '0xD8DEE9'
+#   normal:
+#     black: '0x3B4252'
+#     red: '0xBF616A'
+#     green: '0xA3BE8C'
+#     yellow: '0xEBCB8B'
+#     blue: '0x81A1C1'
+#     magenta: '0xB48EAD'
+#     cyan: '0x88C0D0'
+#     white: '0xE5E9F0'
+#   bright:
+#     black: '0x4C566A'
+#     red: '0xBF616A'
+#     green: '0xA3BE8C'
+#     yellow: '0xEBCB8B'
+#     blue: '0x81A1C1'
+#     magenta: '0xB48EAD'
+#     cyan: '0x8FBCBB'
+#     white: '0xECEFF4'
+
+# End Nord
+
+# One Dark
+
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x1e2127'
+#    foreground: '0xabb2bf'
+
+#    # Bright and dim foreground colors
+#    #
+#    # The dimmed foreground color is calculated automatically if it is not present.
+#    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+#    # is `false`, the normal foreground color will be used.
+#    #dim_foreground: '0x9a9a9a'
+#    bright_foreground: '0xe6efff'
+
+#  # Cursor colors
+#  #
+#  # Colors which should be used to draw the terminal cursor. If these are unset,
+#  # the cursor color will be the inverse of the cell color.
+#  #cursor:
+#  #  text: '0x000000'
+#  #  cursor: '0xffffff'
+
+#  # Normal colors
+#  normal:
+#    black:   '0x1e2127'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0x828791'
+
+#  # Bright colors
+#  bright:
+#    black:   '0x5c6370'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0xe6efff'
+
+#  # Dim colors
+#  #
+#  # If the dim colors are not set, they will be calculated automatically based
+#  # on the `normal` colors.
+#  dim:
+#    black:   '0x1e2127'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0x828791'
+
+# End One Dark
+
