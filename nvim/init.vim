@@ -106,7 +106,8 @@ EOF
 nnoremap <C-p> <cmd>lua require'telescope.builtin'.git_files()<cr>
 " Ripgrep
 " nnoremap <leader>rg <cmd>Telescope live_grep<cr>
-nnoremap <leader>rg <cmd>lua require('telescope').extensions.fzf_writer.staged_grep()<cr>
+" nnoremap <leader>rg <cmd>lua require('telescope').extensions.fzf_writer.staged_grep()<cr>
+nnoremap <leader>rg <cmd>lua require'telescope.builtin'.live_grep()<cr>
 nnoremap <leader>ts <cmd>lua require'telescope.builtin'.treesitter()<cr>
 nnoremap <silent>gr <cmd>lua require'telescope.builtin'.lsp_references()<cr>
 nnoremap <leader>ws <cmd>lua require'telescope.builtin'.lsp_workspace_symbols()<cr>
@@ -246,4 +247,9 @@ nnoremap <silent> <leader>cd :Lspsaga show_line_diagnostics<CR>
 nnoremap <silent> [e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
 nnoremap <silent> ]e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
 
+function LspReload()
+    lua vim.lsp.stop_client(vim.lsp.get_active_clients())
+    edit
+endfunction
 
+command LspReload :call LspReload()
