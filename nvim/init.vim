@@ -202,6 +202,9 @@ require'compe'.setup {
 
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
+lsp_status.config({
+    status_symbol = '',
+})
 
 local on_attach = function(client, bufnr)
     lsp_status.on_attach(client, bufnr)
