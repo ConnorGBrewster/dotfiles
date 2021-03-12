@@ -5,6 +5,7 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'nvim-lua/lsp-status.nvim'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -198,15 +199,26 @@ require'compe'.setup {
     treesitter = true;
   };
 }
+
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
+local on_attach = function(client, bufnr)
+    lsp_status.on_attach(client, bufnr)
+end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
 require'lspconfig'.gopls.setup{
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = on_attach,
 }
 
 require'lspconfig'.rust_analyzer.setup{
     capabilities = capabilities,
+    on_attach = on_attach,
     settings = {
         ["rust-analyzer"] = {
             cargo = {
@@ -220,15 +232,18 @@ require'lspconfig'.rust_analyzer.setup{
 }
 
 require'lspconfig'.tsserver.setup{
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = on_attach,
 }
 
 require'lspconfig'.flow.setup{
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = on_attach,
 }
 
 require'lspconfig'.vimls.setup{
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = on_attach,
 }
 
 local saga = require 'lspsaga'
