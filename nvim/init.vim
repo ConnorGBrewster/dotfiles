@@ -112,6 +112,7 @@ nnoremap <leader>rg <cmd>lua require'telescope.builtin'.live_grep()<cr>
 nnoremap <leader>ts <cmd>lua require'telescope.builtin'.treesitter()<cr>
 nnoremap <silent>gr <cmd>lua require'telescope.builtin'.lsp_references()<cr>
 nnoremap <leader>ws <cmd>lua require'telescope.builtin'.lsp_workspace_symbols()<cr>
+nnoremap <leader>ds <cmd>lua require'telescope.builtin'.lsp_document_symbols()<cr>
 
 " Allow mouse usage
 set mouse=a
