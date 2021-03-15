@@ -114,3 +114,5 @@ alias tmux='TERM=screen-256color tmux'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# Go
+export PATH=$PATH:$(go env GOPATH)/bin
